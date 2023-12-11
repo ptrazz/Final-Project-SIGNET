@@ -58,18 +58,8 @@ buildingsTileset.style = new Cesium.Cesium3DTileStyle({
   show: {
     conditions : [
       // Any building that has this elementId will have `show = false`.
-      ['${elementId} === 332469316', false],
-      ['${elementId} === 332469317', false],
-      ['${elementId} === 235368665', false],
-      ['${elementId} === 530288180', false],
-      ['${elementId} === 530288179', false],
-      ['${elementId} === 121883044', false],
       
-      ['${elementId} === 332469317', false],
-      ['${elementId} === 235368665', false],
-      ['${elementId} === 530288180', false],
-      ['${elementId} === 530288179', false],
-      ['${elementId} === 121883044', false],
+      ['${elementId} === 634270768', false],
       
       // If a building does not have one of these elementIds, set `show = true`.
       [true, true]
@@ -82,7 +72,7 @@ buildingsTileset.style = new Cesium.Cesium3DTileStyle({
     
     // STEP 6 CODE
 // Add the 3D Tileset you created from your Cesium ion account.
-const newBuildingTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2371275);
+const newBuildingTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2386831);
 viewer.scene.primitives.add(newBuildingTileset);
 
 // Move the camera to the new building.
