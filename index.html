@@ -5,12 +5,18 @@
   <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
     <style type="text/css">
-    #toggle-building { z-index: 1; position: fixed; top: 5px; left: 5px; }
+    #toggle-building1 { z-index: 1; position: fixed; top: 5px; left: 5px; background-color: black; color: white; }
+    #toggle-building2 { z-index: 1; position: fixed; top: 35px; left: 5px; background-color: black; color: white; }
+    #toggle-building3 { z-index: 1; position: fixed; top: 65px; left: 5px; background-color: black; color: white; }
+    #toggle-building4 { z-index: 1; position: fixed; top: 95px; left: 5px; background-color: black; color: white; }
   </style>
 </head>
 <body>
   <div id="cesiumContainer"></div>
-  <button id="toggle-building">Toggle new building</button>
+  <button id="toggle-building1">Gedung Sate</button>
+  <button id="toggle-building2">Gedung Merdeka</button>
+  <button id="toggle-building3">Museum Geologi</button>
+  <button id="toggle-building4">Hotel Savoy Homann</button>
   
   <script type="module">
     // Your access token can be found at: https://ion.cesium.com/tokens.
@@ -26,17 +32,14 @@
 
     // Fly the camera to Denver, Colorado at the given longitude, latitude, and height.
     viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(-104.9965, 39.74248, 4000)
-    });
+      destination: Cesium.Cartesian3.fromDegrees(107.61867299958826, -6.900396732303878, 1000)
+    }); 
 
-    // Add Cesium OSM Buildings.
-    const buildingsTileset = await Cesium.createOsmBuildingsAsync();
-    viewer.scene.primitives.add(buildingsTileset);
     
     // STEP 3 CODE
 async function addBuildingGeoJSON() {
   // Load the GeoJSON file from Cesium ion.
-  const geoJSONURL = await Cesium.IonResource.fromAssetId(2371202);
+  const geoJSONURL = await Cesium.IonResource.fromAssetId(2389029);
   // Create the geometry from the GeoJSON, and clamp it to the ground.
   const geoJSON = await Cesium.GeoJsonDataSource.load(geoJSONURL, { clampToGround: true });
   // Add it to the scene.
@@ -51,38 +54,43 @@ async function addBuildingGeoJSON() {
 }
 addBuildingGeoJSON();
     
-    // STEP 4 CODE
-// Hide individual buildings in this area using 3D Tiles Styling language.
-buildingsTileset.style = new Cesium.Cesium3DTileStyle({
-  // Create a style rule to control each building's "show" property.
-  show: {
-    conditions : [
-      // Any building that has this elementId will have `show = false`.
-      
-      ['${elementId} === 634270768', false],
-      
-      // If a building does not have one of these elementIds, set `show = true`.
-      [true, true]
-    ]
-  },
-  // Set the default color style for this particular 3D Tileset.
-  // For any building that has a `cesium#color` property, use that color, otherwise make it white.
-  color: "Boolean(${feature['cesium#color']}) ? color(${feature['cesium#color']}) : color('#ffffff')"
-});
     
     // STEP 6 CODE
 // Add the 3D Tileset you created from your Cesium ion account.
-const newBuildingTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2386831);
-viewer.scene.primitives.add(newBuildingTileset);
-
-// Move the camera to the new building.
-viewer.flyTo(newBuildingTileset);
+const gedungsate = await Cesium.Cesium3DTileset.fromIonAssetId(2386876);
+viewer.scene.primitives.add(gedungsate);
     
+const gedungmerdeka = await Cesium.Cesium3DTileset.fromIonAssetId(2388836);
+viewer.scene.primitives.add(gedungmerdeka);
+    
+const museumgeologi = await Cesium.Cesium3DTileset.fromIonAssetId(2388864);
+viewer.scene.primitives.add(museumgeologi);
+    
+const hotelsavoyhuman = await Cesium.Cesium3DTileset.fromIonAssetId(2388878);
+viewer.scene.primitives.add(hotelsavoyhuman);
+
     // STEP 7 CODE
-// Toggle the tileset's show property when the button is clicked.
-document.querySelector('#toggle-building').onclick = function() {
-  newBuildingTileset.show = !newBuildingTileset.show;
-};
+    // Kamera akan pindah ke bangunan saat tombol diklik
+    document.querySelector('#toggle-building1').onclick = function() {
+      viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(107.6188767282, -6.9044876614, 775), 
+      orientation : {heading : 0, pitch : 0, roll : 0}});
+    };
+    document.querySelector('#toggle-building2').onclick = function() {
+      viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(107.6092595918, -6.9223292966, 750), 
+      orientation : {heading : 0, pitch : 0, roll : 0}});
+    };
+    document.querySelector('#toggle-building3').onclick = function() {
+      viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(107.6214299688, -6.901868382, 770), 
+      orientation : {heading : 0, pitch : 0, roll : 0}});
+    };
+    document.querySelector('#toggle-building4').onclick = function() {
+      viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(107.6103824746, -6.9229073812, 750), 
+      orientation : {heading : 0, pitch : 0, roll : 0}});
+    };
     </script>
   </body>
 </html>
