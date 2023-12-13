@@ -5,6 +5,7 @@
   <link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
     <style type="text/css">
+    
     #toggle-building1 { z-index: 1; position: fixed; top: 10px; left: 5px; background-color: black; color: white; }
     #toggle-building2 { z-index: 1; position: fixed; top: 40px; left: 5px; background-color: black; color: white; }
     #toggle-building3 { z-index: 1; position: fixed; top: 70px; left: 5px; background-color: black; color: white; }
@@ -68,6 +69,7 @@ viewer.scene.primitives.add(museumgeologi);
     
 const hotelsavoyhuman = await Cesium.Cesium3DTileset.fromIonAssetId(2388878);
 viewer.scene.primitives.add(hotelsavoyhuman);
+
 
     // STEP 7 CODE
     // Kamera akan pindah ke bangunan saat tombol diklik
