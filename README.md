@@ -10,7 +10,7 @@ https://cesium.com/learn/cesiumjs-learn/cesiumjs-interactive-building/
 Sumber model 3D bangunan Gedung Sate <br>
 This work is based on "Gedung Sate" (https://sketchfab.com/3d-models/gedung-sate-1e7b90079b70421a96c570df991db730) by hani.nikmah (https://sketchfab.com/hani.nikmah1102a873367bb3d4873) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 
-Sumber model 3D bangunan Gedung erdeka <br>
+Sumber model 3D bangunan Gedung Merdeka <br>
 This work is based on "Gedung Merdeka" (https://sketchfab.com/3d-models/gedung-merdeka-ff1fee41632c4e6582a96d42c84dbc7f) by skawanasa_ (https://sketchfab.com/skawanasa_) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 
 Sumber model 3D bangunan Hotel Savoy Human <br>
